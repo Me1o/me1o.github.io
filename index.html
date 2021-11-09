@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Me1o</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- css -->
+  <link href="style/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg  static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="./imgs/me.jpg" id="me">
+      </a>
+    
+      <div class="" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+         
+          <li class="nav-item">
+            <a class="nav-link" href="#cv" id="cvbtn">Downnload My CV</a>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main container">
+    <div class="intro gd">
+      <h3 id="tr" ></h3>
+      <p id="trr"></p>
+    </div>
+
+    <div class="how gd" id="how">
+      <h3 id="km" ></h3>
+      <p id="kmm"></p>
+    </div>
+
+    <div class="hc gd" id="know">
+      <h3 id="cm" ></h3>
+      <p id="cmm"></p>
+    </div>
+
+  </div>
+   
+   <div class="sig container">
+    <img id="sigpic" src="./imgs/sig.png">
+   </div>
+
+   <div class="footer" id="ftr">
+     <p>© 2020 Hosam Nasr</p>
+     <div class="social">
+       <a href="https://www.linkedin.com/in/hos4am/" target="blank">
+        <img src="./imgs/linkedin.svg">
+       </a>
+       <a href="https://stackoverflow.com/users/10026300/me1o" target="blank">
+        <img src="./imgs/stack-overflow.svg">
+       </a>
+       <a href="https://twitter.com/hos4am" target="blank">
+        <img src="./imgs/twitter.svg">
+       </a>
+     </div>
+   </div>
+
+
+   <div class="dialog">
+
+   </div>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.slim.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+<script>
+var app = document.getElementById('tr');
+var typewriter = new Typewriter(app, {
+    loop: false
+});
+typewriter.typeString('Hello World! 👋')
+    .pauseFor(250)
+    .deleteChars(9)
+    .typeString('E-World! 👋')
+    .pauseFor(250)
+    .deleteChars(12)
+    .typeString(', my name is Hosam Nasr 👋')
+    .pauseFor(250)
+    .start();
+  </script>
+
+<script>
+  var app = document.getElementById('trr');
+  var typewriter = new Typewriter(app, {
+      loop: false
+  });
+  typewriter.pauseFor(12000)
+      .pasteString('a Fullstack software engineer who loves to create worlds out of binary bricks and be part of projects that matter.')
+      .start();
+</script>
+
+<script>
+  var app = document.getElementById('km');
+  var typewriter = new Typewriter(app, {
+      loop: false
+  });
+  typewriter.pauseFor(15000)
+      .typeString('How do you know me?')
+      .pauseFor(250)
+      .deleteChars(19)
+      .typeString('Why do you know me?')
+      .pauseFor(250)
+      .pasteString(' you dont, But..')
+      .pauseFor(250)
+      .start();
+    </script>
+
+<script>
+  var app = document.getElementById('kmm');
+  var typewriter = new Typewriter(app, {
+      loop: false
+  });
+  typewriter.pauseFor(25000)
+      .pasteString('I took part of various well-known projects and was part of the core team of many startups. i was the CTO at a saudi startup called Shoghol before leading the front-end development team at the now-known riyadh based <a target="blank" href="https://www.homoola.com/">Homoola</a> for 2 yrs. i then founded the sudanese mobile-based delivery services startup <a target="blank" href="https://www.flexit.today/">Flex</a>. i am currently leading the IT team at riyadh-based <a target="blank" href="https://mohtwize.net/">Mohtwize</a> where we create products that empower podcast content creators in thier mission to make thier voice heard.')
+      .start();
+</script>
+
+
+<script>
+  var app = document.getElementById('cm');
+  var typewriter = new Typewriter(app, {
+      loop: false
+  });
+  typewriter.pauseFor(28000)
+      .typeString('How can i help you?')
+      .pauseFor(250)
+      .start();
+    </script>
+
+<script>
+  var app = document.getElementById('cmm');
+  var typewriter = new Typewriter(app, {
+      loop: false
+  });
+  typewriter.pauseFor(32000)
+      .pasteString('with 8 years of exp as a developer, team leader and CTO i can help you by being part of your development team, lead your development team or architect the digital Infrastructure of your organization. i am available for Full/Part-Time employment, Project-based work or paid/unpaid consultancy. download a PDF version of my <a href="cv.pdf" target="blank">CV</a>')
+      .start();
+</script>
+
+<script>
+  setTimeout(function(){ 
+    document.getElementById("me").classList.add("poped");
+    document.getElementById("ftr").classList.add("visible");
+
+  }, 100);
+
+   setTimeout(function(){ 
+     var how = document.getElementById("how");
+     how.classList.add("visible");
+     how.scrollIntoView();
+
+  }, 15000);
+
+  setTimeout(function(){ 
+    var know = document.getElementById("know");
+    know.classList.add("visible");
+    know.scrollIntoView();
+  }, 28000);
+
+ setTimeout(function(){ 
+   var sig = document.getElementById("sigpic");
+    sig.classList.add("visible");
+    sig.scrollIntoView();
+  }, 33000);
+
+  setTimeout(function(){ 
+    document.getElementById("cvbtn").classList.add("visible");
+  }, 33000);
+</script>
+
+
+<script>
+
+</script>
+
+</body>
+
+</html>
