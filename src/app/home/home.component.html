@@ -1,0 +1,80 @@
+<div class="hero relative md:px-[15%] px-[15%] py-[10%] w-full">
+  <h1 class="shadowtxt text-slate-100 lg:text-[200px] md:lg:text-[150px] text-8xl">#Melo</h1>
+<div class="md:w-80 md:h-80 w-40 h-40 absolute  bg-slate-100 rounded-2xl rotate-12 right-0 blur" ></div>
+<div class="w-12 h-12 absolute  bg-[#ed0b70] rounded-full rotate-12 right-0 blur-sm" ></div>
+<div class="relative mb-2">
+   <div class="w-16 h-16 absolute -mx-4 bg-slate-200 rounded-xl" ></div>
+   <img src="./assets/me.png" class="w-24 -mx-4 me">
+   <div class="w-8 h-8 absolute -mx-4 bg-[#ed0b70] rounded-full bottom-0" ></div>
+</div>
+<p class="text-[#ed0b70] code z-50 relative">hello world! my name is</p>
+<p class="text-slate-800 text-4xl md:text-7xl font-bold z-50 relative">Hosam Nasr.</p>
+<p class="text-slate-400 text-4xl md:text-7xl font-bold z-50 relative">Software Engineer</p>
+<div class="flex gap-x-1 z-50 relative">
+  <a href="#about" class="text-slate-600 cursor-pointer hover:text-[#ed0b70] text-sm code">About</a>
+  <a class="text-slate-600 cursor-pointer hover:text-[#ed0b70] text-sm code" href="./assets/cv.pdf" target="_blank">Resume</a>
+  <p class="text-slate-600 cursor-pointer hover:text-[#ed0b70] text-sm code" [routerLink]="['/blog']">Blog</p>
+</div>
+</div>
+
+<div class="relative md:px-[15%] py-[5%] px-[15%] w-full overflow-hidden" id="about">
+  <h1 class="shadowtxt text-slate-100 lg:text-[200px] md:lg:text-[150px] text-8xl">#About</h1>
+  <div class="relative mb-4">
+    <div class="w-16 h-16 absolute -mx-4 bg-slate-200 rounded-xl z-0 -top-2 -left-2" ></div>
+    <p class="text-[#ed0b70] code z-50 relative font-bold">About<br>Me</p>
+  </div>
+  <div class="flex flex-wrap">
+  <div class="md:w-7/12 w-full md:p-2 p-0">
+  <p class="text-slate-600 text-md font-medium">Hello! My name is Hosam Nasr and i enjoy creating digital products. it started back in 2009 as a hoppy, little did i know that trying to figure out how PES 2009 hack tools worked would leed to me having a career in software development!</p>
+  <p class="text-slate-600 text-sm font-medium mt-2">here are some technologies i recently used:</p>
+  <ul id="technologies">
+    <li class=" text-md code text-[#ed0b70]">JavaScript</li>
+    <li class=" text-md code text-[#ed0b70]">TypeScript</li>
+    <li class=" text-md code text-[#ed0b70]">Angular</li>
+    <li class=" text-md code text-[#ed0b70]">Vue</li>
+    <li class=" text-md code text-[#ed0b70]">Ionic</li>
+  </ul>
+  </div>
+  <div class="md:w-5/12 md:mt-0 w-full mt-6 relative hover:skew-y-12 transition-all duration-300">
+    <div class="w-full h-full absolute -mx-4 bg-slate-200 rounded-xl z-0 -top-2 -right-2" ></div>
+    <img src="./assets/me2.png" class="rounded-lg z-50 relative">
+    <div class="w-full h-full absolute bg-[#ed0b70] rounded-xl z-50 top-0 right-0 rounded opacity-30 hover:translate-y-6 hover:translate-x-6 transition-all" ></div>
+  </div>
+  </div>
+  <p class="text-slate-600 text-sm font-medium  mt-4">i have my fingerprints all over:</p>
+  <div class="flex flex-wrap gap-2">
+    <div class="p-1 bg-white w-10 h-10 rounded-lg shadow flex items-center">
+      <img src="./assets/zid.png" class="w-full">
+    </div>
+    <div class="p-1 bg-white w-10 h-10 rounded-lg shadow flex items-center">
+      <img src="./assets/glt.png" class="w-full">
+    </div>
+    <div class="p-1 bg-white w-10 h-10 rounded-lg shadow flex items-center">
+      <img src="./assets/mohtwize.png" class="w-full">
+    </div>
+    <div class="p-1 bg-white w-10 h-10 rounded-lg shadow flex items-center">
+      <img src="./assets/flex.png" class="w-full">
+    </div>
+    <div class="p-1 bg-white w-10 h-10 rounded-lg shadow flex items-center">
+      <img src="./assets/homoola.png" class="w-full">
+    </div>
+  </div>
+</div>
+
+<div class="hero relative md:px-[15%] px-[15%] py-[5%] w-full">
+  <h1 class="shadowtxt text-slate-100 lg:text-[200px] md:lg:text-[150px] text-8xl">#Contact</h1>
+  <div class="relative mb-4">
+    <div class="w-16 h-16 absolute -mx-4 bg-slate-200 rounded-xl z-0 -top-2 -left-2" ></div>
+    <p class="text-[#ed0b70] code z-50 relative font-bold">Lets<br>talk</p>
+  </div>
+  <p class="text-slate-800 text-4xl md:text-7xl font-bold z-50 relative">Reach out.</p>
+  <p class="text-slate-600 text-md font-medium">Whether you want to discuss something or just drop a simple "Hi!" on my index. i am all ears.</p>
+  <a class="bg-transparent hover:bg-[#ed0b70] text-[#ed0b70] hover:text-white font-semibold  py-1 px-4 border border-[#ed0b70] hover:border-transparent rounded code mt-2 inline-block" href="mailto:hos4am@live.com?subject=Hi Melo!">
+    Say Hi!
+  </a>
+</div>
+
+
+
+
+<app-footer></app-footer>

@@ -1,0 +1,43 @@
+<div class="flex flex-col p-2 gap-4 fixed -bottom-2 items-center z-50">
+  <a href="https://twitter.com/hos4am" target="_blank"><img src="./assets/linkedinoutline.svg" class="w-6 cursor-pointer socialIcon"></a>
+  <a href="https://www.linkedin.com/in/hosamnasr/" target="_blank"><img src="./assets/twitteroutline.svg" class="w-6 cursor-pointer socialIcon"></a>
+  <div class="w-[1px] h-12 bg-slate-600 rounded-xl"></div>
+  </div>
+
+  <div class="flex flex-col p-2 gap-4 fixed -bottom-2 -right-14 items-center z-50">
+    <a class="text-slate-600 code font-bold uppercase rotate-90 mb-14 cursor-pointer hover:text-[#ed0b70]" href="mailto:hos4am@live.com?subject=Hi Melo!">Hos4am@live.com</a>
+     <div class="w-[1px] h-12 bg-slate-600 rounded-xl"></div>
+  </div>
+
+
+<div class="bg-white rounded-md fixed bottom-6 m-auto left-0 right-0 z-50 drop-shadow-2xl md:drop-shadow-md p-2 flex items-center gap-2 md:w-4/6 w-9/12 flex-wrap">
+
+  <div class="flex items-start cursor-pointer transition-all hover:-translate-y-1 overflow-hidden" [routerLink]="['/post', post.id]">
+    <img src="./assets/document.png" class="md:w-10 w-6">
+    <div class="ml-2">
+      <p class="font-bold text-slate-800 truncate w-60 md:text-sm text-xs">{{ post.data.title[0].text }}</p>
+      <div class="flex gap-4">
+        <p class="text-slate-500 md:text-sm text-xs">{{ postDate }}</p>
+        <p class="text-slate-500 md:text-sm text-xs">{{ post.data.lenght }} min read</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="h-10 w-[1px] bg-slate-200 rounded mx-4 md:block hidden"></span>
+  <a href="./assets/cv.pdf" target="_blank">
+  <div class="flex items-start cursor-pointer transition-all hover:-translate-y-1 overflow-hidden">
+    <img src="./assets/cv.png" class="md:w-10 w-6">
+    <div class="ml-2">
+      <p class="font-bold text-slate-800 md:text-sm text-xs">My Resume</p>
+      <div class="flex gap-4">
+        <p class="text-slate-500 md:text-sm text-xs"><span class="w-2 h-2 mr-1  rounded-full bg-green-500 inline-block"></span>updated {{ cvUpdateDate() }} days ago</p>
+      </div>
+    </div>
+  </div>
+  </a>
+</div>
+
+  <div class="relative px-[20%] pt-[10%] mb-2 text-center" id="footer">
+    <p class="text-slate-600 code font-bold md:text-sm text-xs">a Hosam Nasr production</p>
+    <span class="text-slate-400 md:text-sm text-xs">2023</span>
+  </div>

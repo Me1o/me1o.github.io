@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+
+<div class="hero relative md:px-[20%] px-[10%] py-[5%] w-full" *ngIf="post">
+  <h1 class="shadowtxt text-slate-100 lg:text-[200px] md:lg:text-[150px] text-8xl">/Post</h1>
+<div class="md:w-80 md:h-80 w-40 h-40 absolute  bg-slate-100 rounded-2xl rotate-12 right-0 blur" ></div>
+<div class="w-12 h-12 absolute  bg-[#ed0b70] rounded-full rotate-12 right-0 blur-sm" ></div>
+<div class="relative mb-2">
+   <div class="w-16 h-16 absolute -mx-4 bg-slate-200 rounded-xl" ></div>
+   <img src="./assets/me.png" class="w-24 -mx-4 me">
+   <div class="w-8 h-8 absolute -mx-4 bg-[#ed0b70] rounded-full bottom-0" ></div>
+</div>
+<p class="text-[#ed0b70] code z-50 relative md:text-sm text-xs">First Published: {{ postDate }}</p>
+<p class="text-slate-800 text-2xl  md:text-5xl font-bold z-50 relative">{{ post.data.title[0].text }}</p>
+</div>
+<div  *ngIf="post">
+  <div class="relative md:mx-[20%] mx-[10%] my-6 flex justify-center">
+    <img class="object-cover" src="{{ post.data.image.url }}">
+  </div>
+  <div class="body relative md:px-[20%] px-[10%] w-full flex gap-3 flex-wrap text-md md:text-lg text-slate-600" [innerHtml]="documentAsHTML">
+</div>
+
+</div>
+
+<app-footer></app-footer>

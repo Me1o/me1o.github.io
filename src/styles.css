@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Source+Code+Pro:wght@400;700&display=swap');
+
+body{
+  font-family: 'Poppins', sans-serif;
+}
+.code{
+  font-family: 'Source Code Pro', monospace;
+}
+
+
+.me{
+  transform: rotateZ(-45deg);
+}
+
+
+#technologies {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  list-style: square;
+}
+
+.socialIcon{
+  transition: all 0.4s ease-in-out;
+  filter: invert(29%) sepia(45%) saturate(314%) hue-rotate(176deg) brightness(94%) contrast(83%);
+}
+
+.socialIcon:hover{
+  filter: invert(16%) sepia(96%) saturate(4245%) hue-rotate(323deg) brightness(92%) contrast(102%);
+}
+
+
+.shadowtxt{
+  position: absolute;
+font-weight: bold;
+top: 50%;
+transform: translateY(-50%);
+z-index: -1;
+}
