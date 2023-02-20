@@ -8,6 +8,7 @@ import { PrismicService } from '../services/prismic.service';
 })
 export class FooterComponent implements OnInit {
   public post: any;
+  public showWidget: boolean = true;
   constructor(public prismicService: PrismicService) {}
 
   ngOnInit(): void {
@@ -15,6 +16,11 @@ export class FooterComponent implements OnInit {
       this.post = p[0];
     })
   }
+
+  toggleWidget(){
+    this.showWidget = !this.showWidget;
+  }
+
   get postDate(){
     let date = new Date(this.post.first_publication_date);
     return date.getDate() + " " + new Intl.DateTimeFormat("en-US", { month: "long" }).format() + " " + date.getFullYear();
