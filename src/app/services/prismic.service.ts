@@ -15,7 +15,7 @@ export class PrismicService {
 
   getPost(id: string) {
     let client = prismic.createClient("digitalbackyard");
-    return client.getByID(id);
+    return client.getByUID("post",id);
   }
 
 }
