@@ -12,7 +12,7 @@
 
 <div class="bg-white rounded-md fixed bottom-6 m-auto left-0 right-0 z-50 drop-shadow-2xl md:drop-shadow-md p-2 flex items-center gap-2 md:w-4/6 w-9/12 flex-wrap" *ngIf="showWidget">
   <span class="text-slate-600 cursor-pointer absolute top-0 right-0 p-2 hover:opacity-50 transition-all duration-200" (click)="toggleWidget()">X</span>
-  <div class="flex items-start cursor-pointer transition-all hover:-translate-y-1 overflow-hidden" [routerLink]="['/post', post.id]">
+  <div class="flex items-start cursor-pointer transition-all hover:-translate-y-1 overflow-hidden" [routerLink]="['/post', post.uid]">
     <img src="./assets/document.png" class="md:w-10 w-6">
     <div class="ml-2">
       <p class="font-bold text-slate-800 truncate w-60 md:text-sm text-xs">{{ post.data.title[0].text }}</p>
