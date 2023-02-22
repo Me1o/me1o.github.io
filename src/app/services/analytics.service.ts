@@ -36,6 +36,7 @@ export class AnalyticsService {
           page_path: this.router.url,
           page_location: "www.me1o.io" + this.router.url
         });
+       // console.log(this.gtag);
         return data && data.title ? `${data.title} • ${this.default_title}` : this.default_title;
       })
     ).subscribe((current_title) => this.title.setTitle(current_title));
