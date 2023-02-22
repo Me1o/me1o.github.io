@@ -9,13 +9,16 @@ import { Post } from '../types/post';
 })
 export class BlogComponent implements OnInit {
   public posts: any[];
+  public isLoading = false;
   constructor(public prismicService: PrismicService) {
     this.posts = [];
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.prismicService.getPosts().then(p => {
       this.posts = p;
+      this.isLoading = false;
     })
   }
 }

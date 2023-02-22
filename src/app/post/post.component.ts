@@ -11,15 +11,17 @@ export class PostComponent implements OnInit {
   public id: any;
   public post:any;
   public documentAsHTML: any;
+  public isLoading = false;
   constructor(public prismicService: PrismicService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.id = this.route.snapshot.paramMap.get('id')
     this.prismicService.getPost(this.id).then(p => {
       this.post = p;
       this.documentAsHTML = prismicH.asHTML(this.post.data.body);
-
+      this.isLoading = false;
     })
   }
 
