@@ -18,6 +18,7 @@ export class AnalyticsService {
   ) { }
 
   boot() {
+    console.log('here')
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(() => this.activeRoute),
