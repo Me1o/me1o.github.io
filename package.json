@@ -21,6 +21,7 @@
     "@angular/router": "~12.2.0",
     "@prismicio/client": "^6.7.3",
     "@tailwindcss/line-clamp": "^0.4.2",
+    "angular-gtag": "^1.0.4",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier-eslint": "^15.0.1",

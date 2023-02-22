@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { AnalyticsService } from './services/analytics.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'artery-app';
+  constructor(private analyticsService: AnalyticsService) { }
+  ngOnInit() {
+    this.analyticsService.boot();
+  }
 }

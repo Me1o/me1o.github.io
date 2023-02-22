@@ -10,7 +10,8 @@ import { PostComponent } from './post/post.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-
+import {AnalyticsService} from "./services/analytics.service";
+import {GtagModule} from "angular-gtag";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     FooterComponent,
     NavbarComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, GtagModule.forRoot({ trackingId: 'G-G8CYCYXG39', trackPageviews: false })],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
 })
