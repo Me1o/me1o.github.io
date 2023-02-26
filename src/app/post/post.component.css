@@ -32,7 +32,9 @@
   z-index: 999;
 }
 
-
+:host ::ng-deep ul{
+  width: 100%;
+}
 :host ::ng-deep li{
   font-style: italic;
 }
