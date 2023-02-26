@@ -21,4 +21,9 @@ export class BlogComponent implements OnInit {
       this.isLoading = false;
     })
   }
+
+   postDate(post: any){
+    let date = new Date(post.first_publication_date);
+    return date.getDate() + " " + new Intl.DateTimeFormat("en-US", { month: "long" }).format() + " " + date.getFullYear();
+  }
 }
