@@ -31,8 +31,8 @@
   <div *ngFor="let post of posts; index as i;" [routerLink]="['/post', post.uid]" class="post rounded-md bg-white shadow w-full lg:w-4/12 min-h-[300px] hover:-translate-y-1 hover:origin-bottom hover:shadow-lg transition-all duration-200 cursor-pointer">
     <div class="w-full min-h-[200px] bg-slate-200  bg-cover bg-center bg-no-repeat" [ngStyle]="{'background-image': 'url(' + post.data.image.url + ')'}" ></div>
     <div class="p-2">
-      <p class="font-bold text-slate-800 truncate w-full md:text-sm text-xs">{{ post.data.title[0].text }}</p>
-      <p class="text-slate-600 w-full md:text-sm text-xs line-clamp-3 mt-2">{{ post.data.body[0].text }}</p>
+      <p class="font-bold text-slate-800 truncate w-full md:text-lg text-md">{{ post.data.title[0].text }}</p>
+      <p class="text-slate-500 w-full md:text-lg text-md line-clamp-3 mt-2">{{ post.data.body[0].text }}</p>
     </div>
     <div class="flex gap-4 p-2">
       <p class="text-slate-500 md:text-sm text-xs">{{ postDate(post) }}</p>
