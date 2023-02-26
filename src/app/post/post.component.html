@@ -19,7 +19,8 @@
 </div>
 <div  *ngIf="post">
   <div class="relative md:mx-[20%] mx-[10%] my-6 flex justify-center">
-    <img class="object-cover" src="{{ post.data.image.url }}">
+    <div class="w-full h-full absolute -mx-4 bg-slate-200 rounded-xl z-0 top-2 -right-1" ></div>
+    <img class="object-cover z-50 rounded-md" src="{{ post.data.image.url }}">
   </div>
   <div class="body relative md:px-[20%] px-[10%] w-full flex gap-3 flex-wrap text-md md:text-lg text-slate-600" [innerHtml]="documentAsHTML">
 </div>
