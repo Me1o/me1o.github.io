@@ -38,3 +38,8 @@
 :host ::ng-deep li{
   font-style: italic;
 }
+
+:host ::ng-deep a{
+  color: rgb(237 11 112);
+  font-family: Source Code Pro,monospace;
+}
