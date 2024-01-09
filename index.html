@@ -6,159 +6,54 @@
   <link href="style/style.css" rel="stylesheet" />
 </head>
 <audio src="./lageto.mp3"></audio>
-<body class="bg-black">
-  <div id="hero" class="min-h-screen w-screen relative">
-    <div id="nav-wrp" class="bg-transparent flex items-center justify-center w-screen p-8">
-      <div id="nav" class="w-1/2 rounded-xl p-2 px-8">
-        <div class="flex justify-center">
-          <p class="ara lg:text-5xl md:text-7xl text-9xl text-white leading-none tracking-tighter" id="">.مّيلو</p>
-        </div>
-      </div>
-    </div>
-    <div class="lg:mx-[25%] md:mx-[15%] mx-[10%] lg:mt-0 md:mt-[5vh] mt-[20vh] hidden">
-      <h1 class="text-white lg:text-6xl md:text-5xl text-8xl font-bold lg:leading-tight md:leading-snug z-50 relative">Creater<span class="special">Founder</span>Developer</h1>
-    </div>
-    <img src="./images/hash2.png" class="w-[25vw] top-[15%] left-[-10%] absolute float">
-    <img src="./images/flash.png" class="w-[25vw] top-0 right-0 absolute float2">
-    <div class="lg:top-4 lg:left-4 md:top-8 md:left-8 absolute bg-white lg:w-8 lg:h-8 md:w-24 md:h-24 rounded-full cursor-pointer shadow-xl paused" id="player">
-      <div class="animate-ping lg:w-8 lg:h-8 md:w-24 md:h-24 rounded-full bg-white opacity-50"></div>
-      <img src="./images/speaker.png" class="w-full lg:-mt-8 md:-mt-24">
-    </div>
+
+<body class="w-screen relative">
+  <div class="flex items-center justify-between mx-8 mt-4" id="nav">
+    <p class="ara lg:text-4xl md:text-4xl text-7xl leading-none" id="">.مّيلو</p>
+    <a href="./cv.pdf" target="_blank" type="button" class="text-white bg-[#050708] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 me-2 mb-2">
+      📃 Download CV
+    </a>
   </div>
 
-  <div class=" absolute bottom-0">
-    <div class="flex items-center justify-center p-4">
-      <div class="bg-white lg:w-11/12 md:w-full w-full rounded-lg relative overflow-hidden flex items-center p-2 px-6  justify-between flex-wrap">
-        <h1 class="text-slate-100 text-9xl font-bold absolute top-0">#ReachOut</h1>
-        <div class="relative z-50 flex gap-2 items-center">
-          <span class="w-6 h-6 rounded-full bg-green-600 inline-block animate-bounce shrink-0"></span>
-          <div class="">
-            <p class="font-bold leading-none  lg:text-xl md:text-5xl text-7xl">Contact me.</p>
-            <span class="lg:text-xs md:text-3xl text-5xl text-slate-600 ">Whether you want to discuss something or just drop a simple "Hi!" on my index. i am all ears.</span>
-          </div>
-        </div>
-        <a href="mailto:hos4am@live.com?subject=Hi Melo!" class="bg-transparent  hover:text-white font-semibold py-1 px-4 border hover:border-transparent rounded code mt-2 inline-block relative btn hover:shadow  lg:text-xs md:text-3xl text-5xl">Say hi!</a>
-      </div>
+
+  <div id="cont" class="mx-16">
+  <div class="mt-24" id="hero">
+    <div class="relative my-8">
+      <div class="w-8 h-8 rounded-full bg-gray-500 block absolute top-0 translate-y-[10px] translate-x-[10px] z-50 opacity-10"></div>
+      <img src="./assets/me.jpg" class="w-32 rounded-full relative z-40">
+      <div class="w-32 h-32 rounded-xl bg-gray-50 block absolute top-0 translate-y-[10px] translate-x-[10px]"></div>
     </div>
-    <div class="flex items-center gap-1 overflow-scrool  overflow-x-scroll	w-screen" style="align-items: stretch">
-      <div class="bg-white flex flex-col items-center  justify-center origin-center hover:scale-[.99] transition-all box p-4 w-full md:w-10/12 lg:w-1/3 shrink-0 relative p-12 md:p-12 lg-p-6">
-        <h1 class="text-slate-100 text-9xl font-bold absolute">#Ana</h1>
-        <div class="w-64 relative">
-          <img src="./images/flash.png" class="w-16 pw absolute top-0 left-[-20px]">
-          <img src="./images/me2.png" class="w-64 rounded-lg">
-        </div>
-        <div class="z-50 relative">
-          <img src="./images/at.png" class="w-16 pw icn">
-          <p class="text-black font-bold lg:text-xl md:text-5xl text-7xl relative z-50">Hello!</p>
-          <p class="text-black lg:text-xs md:text-3xl text-5xl">My name is Hosam Mohamed Nasr. I am a 29 years old Sudanese software
-            engineer with 9 years worth of experience working on enterprise-scale
-            applications/ projects. Looking to write code that makes a difference.</p>
-            <a href="./cv.pdf" target="_blank" class="bg-transparent  hover:text-white font-semibold py-1 px-4 border hover:border-transparent rounded code mt-2 inline-block relative btn hover:shadow  lg:text-xs md:text-3xl text-5xl">Download my CV</a>
-        </div>
-      </div>
-      <div class="bg-white flex flex-col items-center  justify-center origin-center hover:scale-[.99] transition-all box p-4 w-full md:w-10/12 lg:w-1/3 shrink-0 relative p-12 md:p-12 lg-p-6">
-        <h1 class="text-slate-100 text-9xl font-bold absolute">#Flex</h1>
-        <div class="bg-white p-2 rounded-lg zid relative mb-4 z-50">
-          <img src="./images/flex.png" class="lg:w-24 md:w-40 w-64 pw rounded-xl shadow overflow-hidden">
-          <img src="./images/brush.png" class="w-16 pw absolute bottom-0 right-[-20px] icn">
-        </div>
-        <p class="text-black lg:text-md md:text-4xl text-6xl text-center font-bold z-50">"Flex: Delivering a technological revolution in Sudan"</p>
-        <span class=" lg:text-xs md:text-3xl text-5xl text-gray-400 text-center mt-2 mb-4 z-50">-Wamda about a startup i founded</span>
-        <a href="https://www.wamda.com/en/2020/10/flex-delivering-technological-revolution-sudan" target="_blank" class="bg-transparent  hover:text-white font-semibold py-1 px-4 border hover:border-transparent rounded code mt-2 inline-block relative btn hover:shadow  lg:text-xs md:text-3xl text-5xl">Read article</a>
-      </div>
+    <h1 class="lg:text-5xl md:text-4xl text-7xl">hello there 👋</h1>
+    <p class="lg:text-3xl md:text-2xl text-4xl text-gray-600">my name is hosam nasr. i write software for a living.</p>
 
-      <div class="bg-white flex flex-col items-center  justify-center origin-center hover:scale-[.99] transition-all box p-4 w-full md:w-10/12 lg:w-1/3 shrink-0 relative p-12 md:p-12 lg-p-6">
-        <h1 class="text-slate-100 text-9xl font-bold absolute">#Exp</h1>
-        <div class="bg-[#802BE7] p-2 rounded-lg zid relative">
-          <img src="./images/rocket.png" class="lg:w-16 md:24 w-44 pw absolute lg:top-[-10px] top-[-40px] lg:left-[-30px] md:left-[-75px] left-[-60px] icn">
-          <img src="./images/zid.svg" class="lg:w-44 md:w-80 w-96 pw">
-          <img src="./images/plus.png" class="lg:w-16 md:24 w-44 pw absolute lg:bottom-0 md:bottom-[-40px] bottom-[-20px] right-[-20px]">
+    <div id="items" class="flex flex-col gap-2 mt-16">
+      <a href="https://www.wamda.com/en/2020/10/flex-delivering-technological-revolution-sudan" target="_blank" class="rounded-xl bg-gray-50 p-4 pl-4 pr-14 flex items-start gap-2 w-fit cursor-pointer transition-all hover:bg-gray-100">
+        <div class="bg-white flex items-center p-[1px] rounded-full w-10 h-10 overflow-hidden">
+          <img src="./assets/flex.png" class="w-full">
         </div>
-        <div class="flex items-center justify-center">
-          <div class=" p-2 rounded-lg">
-            <img src="./images/glt.png" class="lg:w-20 md:w-32 w-40  pw icn">
-          </div>
-          <div class=" p-2 rounded-lg">
-            <img src="./images/mohtwize.png" class="lg:w-20 md:w-32 w-40  pw icn">
-          </div>
-          <div class=" p-2 rounded-lg">
-            <img src="./images/homoola.png" class="lg:w-20 md:w-32 w-40  pw icn">
-          </div>
+        <div>
+          <p>"Flex: Delivering a technological revolution in Sudan"</p>
+          <span class="text-sm  text-gray-600">-Wamda about a startup i founded</span>
         </div>
-        <p class="text-black font-bold lg:text-xl md:text-5xl text-7xl relative z-50 mt-8">Career</p>
-      </div>
+      </a>
 
-      <div class="bg-white flex flex-col items-center justify-between origin-center hover:scale-[.99] transition-all box p-4 w-full md:w-10/12 lg:w-1/3 shrink-0 relative p-12 md:p-12 lg-p-6 overflow-hidden">
-        <h1 class="text-slate-100 text-9xl font-bold absolute">#Social</h1>
-        <div class="scale-75">
-        <div class="bg-slate-100 p-2 rounded-lg zid relative">
-          <img src="./images/in.svg" class="lg:w-32 md:w-44 w-64 pw">
-          <img src="./images/inimg.jpg" class="lg:w-16 md:w-24 w-44 pw absolute bottom-[10px] right-[-30px] rounded-full border-2 shadow-xl border-white icn">
-          <span class="pw absolute top-[10px] right-[-30px] rounded-lg border-2 shadow-xl border-white lg:text-xs md:text-2xl text-5xl icn">+500 connections</span>
+      <a href="https://www.linkedin.com/in/hosamnasr/" target="_blank" class="rounded-xl bg-gray-50 p-4 pl-4 pr-14 flex items-start gap-2 w-fit cursor-pointer transition-all hover:bg-gray-100">
+        <div class="bg-white flex items-center p-[1px] rounded-full w-10 h-10 overflow-hidden">
+          <img src="./assets/in.svg" class="w-full">
         </div>
-        <div class="flex flex-col items-center justify-center mt-4">
-         <p class="uppercase lg:text-xs md:text-3xl text-5xl">in/hosamnasr</p>
-         <a href="https://www.linkedin.com/in/hosamnasr/" target="_blank" class="bg-transparent  hover:text-white font-semibold py-1 px-4 border hover:border-transparent rounded code mt-2 inline-block relative btn hover:shadow lg:text-xs md:text-4xl text-6xl">Connect</a>
+        <div>
+          <p> Technical Lead at Zid | زد </p>
+          <span class="text-sm  text-gray-600">-lets connect on linkedin</span>
         </div>
-      </div>
-      <div class="scale-75">
-        <div class="bg-slate-100 p-2 rounded-lg zid relative">
-          <img src="./images/twitter.svg" class="lg:w-32 md:w-44 w-64  pw">
-          <img src="./images/twimg.jpg" class="lg:w-16 md:w-24 w-44 pw absolute bottom-[10px] right-[-30px] rounded-full border-2 shadow-xl border-white icn">
-          <span class="pw absolute top-[10px] right-[-30px] rounded-lg border-2 shadow-xl border-white  lg:text-xs md:text-2xl text-5xl s icn">530 followers</span>
-        </div>
-        <div class="flex flex-col items-center justify-center mt-4">
-         <p class="uppercase lg:text-xs md:text-3xl text-5xl">@hos4am</p>
-         <a href="https://twitter.com/hos4am" target="_blank" class="bg-transparent  hover:text-white font-semibold py-1 px-4 border hover:border-transparent rounded code mt-2 inline-block relative btn hover:shadow lg:text-xs md:text-4xl text-6xl">Follow</a>
-        </div>
-      </div>
-      </div>
+      </a>
+
 
     </div>
   </div>
-
-<div id="loader" class="z-50 fixed bg-black w-screen h-screen flex items-center justify-center top-0 left-0">
-  <p class="ara lg:text-5xl md:text-7xl text-9xl text-white leading-none tracking-tighter float2" id="">.مّيلو</p>
 </div>
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="jquery.fittext.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script type="text/javascript" src="./script/main.js"></script>
-  <script>
-    $('.box').hover(
-       function(){ $(this).addClass('hovered') },
-       function(){ $(this).removeClass('hovered') }
-)
-
-$('#player').click(function(){
-  if ($("#player").hasClass("paused")) {
-    const audio = document.querySelector("audio");
-    audio.volume = 0.2;
-    audio.play();
-    setTimeout(() => {
-      $(this).removeClass('paused')
-      $(this).addClass('playing')
-  }, "10");
-  }
-  if ($("#player").hasClass("playing")) {
-    const audio = document.querySelector("audio");
-    audio.pause();
-    setTimeout(() => {
-      $(this).removeClass('playing')
-      $(this).addClass('paused')
-  }, "10");
-  }
-
-});
-
-setTimeout(() => {
-  $('#loader').fadeOut();
-  }, "2000");
-
-
-  </script>
 </body>
 </html>
