@@ -13,3 +13,11 @@ body{
 .ara{
   font-family: 'El Messiri', sans-serif !important;
 }
+
+.paused > .play{
+  display: block;
+}
+
+.playing > .pause{
+  display: block;
+}
