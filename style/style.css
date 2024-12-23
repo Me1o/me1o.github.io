@@ -1,23 +1,336 @@
-@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 
-*{
-  font-family: 'Poppins', sans-serif;
-}
-.code{
-  font-family: 'Roboto Mono', monospace;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Rubik+Mono+One&display=swap');
+
 body{
-}
-.ara{
-  font-family: 'El Messiri', sans-serif !important;
-}
-
-.paused > .play{
-  display: block;
+  background-color: black;
+  font-family: "Rubik Mono One", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
 }
 
-.playing > .pause{
-  display: block;
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5%;
+  filter: blur(10px);
+  transition: all 0.5s ease-in-out;
 }
+
+.avatar{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar > img{
+  width: 50px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 10;
+}
+.avaflare{
+  width: 58px;
+  height: 58px;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 40%;
+  position: fixed;
+  background: #f12711;
+  background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+  background: linear-gradient(to right, #f5af19, #f12711);
+  filter: blur(15px);
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.nav > a{
+  background: #fff;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #000;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+}
+
+.nav > a:hover{
+  opacity: 0.7;
+}
+
+.navafter{
+  filter: blur(0);
+}
+
+.hero{
+  padding: 5%;
+  text-align: left;
+  transition: all 0.5s ease-in-out;
+}
+
+.heroafter{
+  padding-top: 0%;
+  padding-bottom: 1%;
+}
+.heroafter > p{
+  font-size: 10px !important;
+}
+
+.real{
+  display: block;
+  font-size: 20px;
+}
+
+.grid{
+  display: flex;
+  width: 100%;
+  height: 25vh;
+  align-items: normal;
+  padding-left: 5%;
+  padding-right: 5%;
+  gap: 4px;
+  filter: brightness(0.01);
+  transition: all 1s ease-in-out;
+
+}
+.gridafter{
+  filter: brightness(1);
+  z-index: 10;
+  position: relative;
+}
+.grid > div{
+  width: 26%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #D3CCE3;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.grid > div > h6{
+  font-size: 14px;
+  margin: 0;
+}
+.grid > div > p{
+  font-size: 14px;
+  margin: 0;
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.grid > div > img{
+  border-radius: 8px;
+  width: 60px;
+}
+.grid > div:hover{
+  transform: scale(0.95);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.footer{
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #000;
+  border-radius: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+  opacity: 0;
+  filter: blur(10px);
+  transition: all 0.3s ease-in-out;
+}
+.footer > img{
+  width: 38px;
+  margin-right: 5px;
+}
+.footer > p{
+ margin: 0;
+ font-size: 14px;
+ font-family: "Roboto", serif;
+ font-weight: 300;
+ font-style: normal;
+}
+.footerafter{
+  opacity: 1;
+  filter: blur(0px)
+}
+
+.canvas{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 3s ease-in-out;
+}
+.canvasafter{
+ transform: scale(4);
+ filter: brightness(0.2);
+}
+.ora{
+  width: 25vw;
+  height: 25vw;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin-bottom: -12%;
+
+  background: #D3CCE3;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  z-index: 9;
+}
+
+.glare{
+  width: 30vw;
+  height: 30vw;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin-bottom: -12%;
+  position: fixed;
+  background: #f12711;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  filter: blur(50px);
+
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.flare{
+  width: 26vw;
+  height: 26vw;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 40%;
+  margin-bottom: -12%;
+  position: fixed;
+  background: #f12711;
+  background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+  background: linear-gradient(to right, #f5af19, #f12711);
+  filter: blur(50px);
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  z-index: 10;
+  opacity: 0.2;
+}
+
+.overlay{
+  width: 26vw;
+  height: 26vw;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 40%;
+  margin-bottom: -12%;
+  position: fixed;
+  background: #f12711;
+  background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+  background: linear-gradient(to right, #f5af19, #f12711);
+  filter: blur(50px);
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  } to {
+      transform: rotate(360deg);
+  }
+}
+
+
+
+@media (max-width: 576px) {
+  .grid{
+    flex-wrap: wrap;
+    height: 50vh;
+  }
+  .grid > div{
+    width: 80%;
+  }
+  .grid > div > img{
+    width: 40px;
+  }
+
+  .ora{
+    width: 50vw;
+    height: 50vw;
+  }
+  .flare{
+    width: 52vw;
+    height: 52vw;
+  }
+  .glare{
+    width: 60vw;
+    height: 60vw;
+  }
+  .overlay{
+    width: 52vw;
+    height: 52vw;
+  }
+}
+
+@media (min-width: 578px) and (max-width: 768px) {
+  .grid{
+    flex-wrap: wrap;
+    height: 50vh;
+  }
+  .grid > div{
+    width: 80%;
+  }
+  .grid > div > img{
+    width: 40px;
+  }
+
+  .ora{
+    width: 38vw;
+    height: 38vw;
+  }
+  .flare{
+    width: 39vw;
+    height: 39vw;
+  }
+  .glare{
+    width: 40vw;
+    height: 40vw;
+  }
+  .overlay{
+    width: 39vw;
+    height: 39vw;
+  }
+
+ }
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .grid{
+    height: 30vh;
+  }
+ }
+
+
