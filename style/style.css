@@ -306,13 +306,32 @@ body{
 @media screen and (min-width:321px) and (max-width:639px) {
   .grid{
     flex-wrap: wrap;
-    height: 50vh;
+    height: 45vh;
+    padding-left: 0%;
+    padding-right: 0%;
   }
   .grid > div{
-    width: 80%;
+    width: 94%;
+    padding: 10px;
   }
   .grid > div > img{
-    width: 40px;
+    width: 30px;
+  }
+  .grid > div > h6 {
+    font-size: 12px;
+  }
+  .grid > div > p {
+    font-size: 11px;
+  }
+
+  .hero > p{
+    font-size: 10px;
+  }
+  .heroafter > p {
+    font-size: 6px !important;
+  }
+  .real{
+    font-size: 14px;
   }
 
   .ora{
