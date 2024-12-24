@@ -266,7 +266,15 @@ body{
 
 
 
-@media (max-width: 576px) {
+
+
+
+
+
+
+
+
+@media screen and (max-width:320px) {
   .grid{
     flex-wrap: wrap;
     height: 50vh;
@@ -295,8 +303,7 @@ body{
     height: 52vw;
   }
 }
-
-@media (min-width: 578px) and (max-width: 768px) {
+@media screen and (min-width:321px) and (max-width:639px) {
   .grid{
     flex-wrap: wrap;
     height: 50vh;
@@ -306,6 +313,42 @@ body{
   }
   .grid > div > img{
     width: 40px;
+  }
+
+  .ora{
+    width: 50vw;
+    height: 50vw;
+  }
+  .flare{
+    width: 52vw;
+    height: 52vw;
+  }
+  .glare{
+    width: 60vw;
+    height: 60vw;
+  }
+  .overlay{
+    width: 52vw;
+    height: 52vw;
+  }
+}
+@media screen and (min-width:640px) and (max-width:959px) {
+  .grid{
+    height: 30vh;
+  }
+  .grid > div{
+    width: 80%;
+    padding: 10px;
+    width: 26vw;
+  }
+  .grid > div > img{
+    width: 40px;
+  }
+  .grid > div > h6 {
+    font-size: 12px;
+  }
+  .grid > div > p {
+    font-size: 10px;
   }
 
   .ora{
@@ -324,13 +367,10 @@ body{
     width: 39vw;
     height: 39vw;
   }
-
- }
-
-@media (min-width: 769px) and (max-width: 992px) {
+}
+@media screen and (min-width:960px) and (max-width:1279px) {
   .grid{
     height: 30vh;
   }
- }
-
+}
 
