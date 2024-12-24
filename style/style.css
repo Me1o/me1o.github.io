@@ -318,6 +318,14 @@ body{
     width: 52vw;
     height: 52vw;
   }
+
+  .footer > p{
+    font-size: 10px;
+  }
+
+  .footer > img {
+    width: 30px;
+  }
 }
 @media screen and (min-width:321px) and (max-width:639px) {
   .grid{
@@ -364,6 +372,14 @@ body{
   .overlay{
     width: 52vw;
     height: 52vw;
+  }
+
+  .footer > p{
+    font-size: 12px;
+  }
+
+  .footer > img {
+    width: 32px;
   }
 }
 @media screen and (min-width:640px) and (max-width:959px) {
