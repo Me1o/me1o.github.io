@@ -1,0 +1,70 @@
+
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.nav > img{
+  width: 40px;
+}
+
+body{
+  background-color: black;
+  font-family: "Poppins", serif;
+    font-weight: 400;
+  font-style: normal;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  height: 100vh;
+}
+
+
+.progressbox{
+  display: none;
+  width: 75%;
+  height: 10px;
+  background: #eee;
+  position: relative;
+}
+
+.progressbox > div{
+  background-color: #F6041A;
+  height: 100%;
+  width: 0%;
+}
+
+
+#start{
+  background-color: #eee;
+  color: #F6041A;
+  padding: 10px;
+  text-decoration: none;
+  margin-bottom: 50px;
+  display: none;
+}
+
+#files{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#files > a{
+  background-color: #eee;
+  color: #F6041A;
+  padding: 10px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+
