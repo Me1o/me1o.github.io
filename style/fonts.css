@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "jetBold"; /* Choose a name for your font */
+  src: url("./../fonts/JetBrainsMono-Bold.woff2") format("woff2"); /* Specify the path to your WOFF2 file */
+  font-weight: normal; /* Adjust as needed for the specific font variant */
+  font-style: normal; /* Adjust as needed for the specific font variant */
+}
+
+@font-face {
+  font-family: "jetRegular"; /* Choose a name for your font */
+  src: url("./../fonts/JetBrainsMono-Regular.woff2") format("woff2"); /* Specify the path to your WOFF2 file */
+  font-weight: normal; /* Adjust as needed for the specific font variant */
+  font-style: normal; /* Adjust as needed for the specific font variant */
+}
+@font-face {
+  font-family: "jetLight"; /* Choose a name for your font */
+  src: url("./../fonts/JetBrainsMono-Light.woff2") format("woff2"); /* Specify the path to your WOFF2 file */
+  font-weight: normal; /* Adjust as needed for the specific font variant */
+  font-style: normal; /* Adjust as needed for the specific font variant */
+}

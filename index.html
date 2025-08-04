@@ -1,98 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Melo</title>
-  <link href="style/style.css" rel="stylesheet" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <title>Melo</title>
+    <link href="style/style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
 
-<body class="w-screen relative">
-  <div class="nav">
-    <div class="avatar">
-      <div class="avaflare"></div>
-      <img src="./assets/me.jpg">
+  <body class="w-screen h-screen relative">
+    <div
+      class="flex flex-wrap w-full p-4 lg:px-[25%] sm:px-[15%] px-[5%] lg:mt-[25vh] sm:mt-[20vh] mt-[10vh]"
+    >
+      <div class="w-full">
+        <div
+          class="border-dotted border-2 p-1 border-gray-600 w-fit rounded-lg rotate-4"
+        >
+          <img src="./assets/me.jpg" class="w-12 rounded-sm" />
+        </div>
+      </div>
+      <div class="w-full mt-4">
+        <p class="text-xl text-gray-100">
+          Hi, my name is
+          <span
+            class="highlighted border-dotted border-2 border-gray-600 px-1 rounded-lg text-white"
+            >Hosam Nasr</span
+          >. I'm a Product software engineer with 10+ years of experience
+          building apps, leading teams and making an impact.
+        </p>
+      </div>
+      <div class="w-full mt-8">
+        <p
+          class="highlighted border-dotted border-2 border-gray-600 p-1 px-2 rounded-lg text-white text-sm w-fit mb-2"
+        >
+          Startups i have worked with
+        </p>
+        <p class="text-sm">
+          Over the course of my career, I have enjoyed working with those
+          startups.
+        </p>
+        <div class="flex items-center gap-2 mt-2 mb-2">
+          <div
+            class="w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+          >
+            <img class="w-full logo" src="./assets/zid.svg" />
+          </div>
+          <div
+            class="w-10 flex items-center justify-center -rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+          >
+            <img class="w-full logo" src="./assets/glt.png" />
+          </div>
+          <div
+            class="w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+          >
+            <img class="w-full logo" src="./assets/homoola.png" />
+          </div>
+          <span
+            class="highlighted border-dotted border-2 border-gray-600 px-1 rounded-lg text-white -rotate-4"
+            >+4</span
+          >
+        </div>
+        <p class="text-sm">
+          I have helped build products by writing code, deciding architecture,
+          technologies, and shaping software engineering teams.
+        </p>
+      </div>
+
+      <div class="w-full mt-8">
+        <div
+          class="w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+        >
+          <img class="w-full logo" src="./assets/flex2.png" />
+        </div>
+        <p
+          class="highlighted border-dotted border-2 border-gray-600 p-1 px-2 rounded-lg text-white text-sm w-fit mb-2"
+        >
+          Flex, Sudan
+        </p>
+        <p class="text-sm">
+          I have co-founded and served as the CEO of a startup that provided the
+          first app-based delivery service to SMEs in Sudan.
+        </p>
+        <a
+          href="https://www.wamda.com/en/2020/10/flex-delivering-technological-revolution-sudan"
+          target="_blank"
+          class="text-sm underline"
+        >
+          Wamda wrote an article about us <span>&rarr; </span>
+        </a>
+      </div>
     </div>
-    <a href="./cv.pdf" target="_blank" type="button">
-      📃 Download CV
-    </a>
-  </div>
-  <div class="hero">
-    <p id="text"></p>
-  </div>
-  <div class="grid">
-    <div onclick="wamda()">
-      <img src="./assets/flex.png">
-      <h6>Flex: Delivering a technological revolution in Sudan</h6>
-      <p>-Wamda about a startup i founded</p>
-    </div>
-    <div onclick="linkedin()">
-      <img src="./assets/in.svg">
-      <h6>A frontend-leaning fullstack engineer with 9 years of experience.</h6>
-      <p>lets connect on linkedin</p>
-    </div>
-    <div  onclick="demo()">
-      <h6>I help startups/ scaleups build digital products.</h6>
-      <p>Contact me &rarr;</p>
-    </div>
-  </div>
-  <div class="canvas">
-    <div class="ora"></div>
-    <div class="flare"></div>
-    <div class="glare"></div>
-    <div class="overlay"></div>
-  </div>
-  <div class="footer">
-    <img src="./assets/zid.svg">
-    <p>Senior engineer @zid.sa</p>
-  </div>
-  <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-  <script>
-new TypeIt("#text", {
-  speed: 50,
-  startDelay: 900,
-})
-  .type("Hello Earth.", { delay: 100 })
-  .move(-6, { delay: 100 })
-  .type("👋 ", { delay: 400 })
-  .move(8, { delay: 200 })
-  .type(" i am a friend from a faraway civalization that mastered the art of software enginnering thousands of years ago after the AI apocalypse.", { delay: 225 })
-  .pause(200)
-  .type(" i was sent here to help", { delay: 350 })
-  .delete(4)
-  .type(" contribute to the galactic software engineering advancement by transfering my people's experience here.", { delay: 350 })
-  .type(" in order to do so, i am looking for an organization with a..", { delay: 2000 })
-  .type('<em><strong class="real">i am kidding, i am just a software engineer from Sudan.</strong></em>', {
-    speed: 100,
-  })
-  .type(" but i am still good though. i promise.", { delay: 350 })
-  .type(" 😉", { delay: 350 })
-  .go();
-
-  setTimeout(() => {
-    var nav = document.getElementsByClassName( 'nav' )[0];
-    var hero = document.getElementsByClassName( 'hero' )[0];
-    var grid = document.getElementsByClassName( 'grid' )[0];
-    var canvas = document.getElementsByClassName( 'canvas' )[0];
-    var footer = document.getElementsByClassName( 'footer' )[0];
-
-    nav.setAttribute( 'class', 'nav navafter' );
-    hero.setAttribute( 'class', 'hero heroafter' );
-    grid.setAttribute( 'class', 'grid gridafter' );
-    canvas.setAttribute( 'class', 'canvas canvasafter' );
-    footer.setAttribute( 'class', 'footer footerafter' );
-
-  }, 30000);
-
-  function wamda(){
-    window.open('https://www.wamda.com/en/2020/10/flex-delivering-technological-revolution-sudan', '_blank').focus();
-  }
-  function linkedin(){
-    window.open('https://www.linkedin.com/in/hosamnasr/', '_blank').focus();
-  }
-  function demo(){
-    window.location.href = "mailto:hos4am@live.com";
-  }
-  </script>
-</body>
+  </body>
 </html>
+
+<div class="floater flex items-center gap-2">
+  <a href="./cv.pdf" target="_blank">
+    <div
+      class="liquidGlass-wrapper button aspect-square flex items-center justify-center rounded-full"
+    >
+      <div class="liquidGlass-effect rounded-full"></div>
+      <div class="liquidGlass-tint rounded-full"></div>
+      <div class="liquidGlass-shine"></div>
+      <div class="liquidGlass-text rounded-full glass-icon">
+        <img class="w-4" src="./assets/cv.png" />
+      </div>
+    </div>
+  </a>
+  <a
+    href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3u4SBh9x85znCQQftgbAy8_DmXKnbWmdEpphfbnYxUqCE0FW_1LA70zysTUgxHSBFvG8e9VEuk"
+    target="_blank"
+  >
+    <div class="liquidGlass-wrapper button">
+      <div class="liquidGlass-effect"></div>
+      <div class="liquidGlass-tint"></div>
+      <div class="liquidGlass-shine"></div>
+      <div class="liquidGlass-text">book a call</div>
+    </div>
+  </a>
+  <a href="https://www.linkedin.com/in/hosamnasr/" target="_blank">
+    <div
+      class="liquidGlass-wrapper button aspect-square flex items-center justify-center rounded-full"
+    >
+      <div class="liquidGlass-effect rounded-full"></div>
+      <div class="liquidGlass-tint rounded-full"></div>
+      <div class="liquidGlass-shine"></div>
+      <div class="liquidGlass-text rounded-full glass-icon">
+        <img class="w-4" src="./assets/linkedin.png" />
+      </div>
+    </div>
+  </a>
+</div>
