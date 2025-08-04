@@ -76,3 +76,10 @@ body {
 .liquidGlass-wrapper:hover .glass-icon > img {
   transform: scale(1.2);
 }
+
+#link {
+  transition: all 0.4s ease-in-out;
+}
+#link:hover span {
+  margin-left: 4px;
+}
