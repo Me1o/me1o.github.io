@@ -13,6 +13,15 @@
       } catch (e) {
         document.documentElement.setAttribute("data-theme", "dark");
       }
+      try {
+        var savedSound = localStorage.getItem("dial-sound");
+        document.documentElement.setAttribute(
+          "data-sound",
+          savedSound === "off" ? "off" : "on"
+        );
+      } catch (e) {
+        document.documentElement.setAttribute("data-sound", "on");
+      }
     </script>
     <title>Melo</title>
     <link href="style/style.css" rel="stylesheet" />
@@ -38,7 +47,7 @@
           <p class="text-xs">Khartoum, SD - Riyadh,SA</p>
         </div>
       </div>
-      <div class="w-full mt-4">
+      <div id="section-intro" class="w-full mt-4">
         <p id="intro" class="text-xl text-gray-100">
           Hi, my name is
           <span
@@ -48,7 +57,7 @@
           building apps, leading teams and making an impact.
         </p>
       </div>
-      <div class="w-full mt-8">
+      <div id="section-startups" class="w-full mt-8">
         <p
           class="highlighted border-dotted border-2 border-gray-600 p-1 px-2 rounded-lg text-white text-sm w-fit mb-2"
         >
@@ -89,7 +98,7 @@
         </p>
       </div>
 
-      <div class="w-full mt-8 reveal-scroll">
+      <div id="section-flex" class="w-full mt-8 reveal-scroll">
         <div
           class="bob w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
           style="animation-delay: -0.9s"
@@ -108,16 +117,18 @@
         <a
           href="https://www.wamda.com/en/2020/10/flex-delivering-technological-revolution-sudan"
           target="_blank"
-          class="text-sm underline"
+          rel="noopener noreferrer"
+          class="story-link"
         >
-          <div class="flex items-center gap-2 transition-all hover:gap-4">
-            <span>Wamda wrote an article about us </span>
+          <span class="story-link__dot" aria-hidden="true"></span>
+          <span class="story-link__label">Wamda wrote an article about us</span>
+          <span class="story-link__arrow" aria-hidden="true">
             <img class="w-4 logo" src="./assets/arrow.png" />
-          </div>
+          </span>
         </a>
       </div>
 
-      <div class="w-full mt-8 reveal-scroll">
+      <div id="section-lystner" class="w-full mt-8 reveal-scroll">
         <div
           class="bob w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
           style="animation-delay: -0.9s"
@@ -134,11 +145,17 @@
           analysis platform that helps brands understand their customers and
           competitors.
         </p>
-        <a href="https://lystner.ai" target="_blank" class="text-sm underline">
-          <div class="flex items-center gap-2 transition-all hover:gap-4">
-            <span>Take a look </span>
+        <a
+          href="https://lystner.ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="story-link"
+        >
+          <span class="story-link__dot" aria-hidden="true"></span>
+          <span class="story-link__label">Take a look</span>
+          <span class="story-link__arrow" aria-hidden="true">
             <img class="w-4 logo" src="./assets/arrow.png" />
-          </div>
+          </span>
         </a>
       </div>
 
@@ -146,6 +163,36 @@
         <p class="text-xs text-gray-400">[Melo, 2026]</p>
       </div>
     </div>
+
+    <nav class="index-rail" aria-label="Page sections">
+      <span class="index-rail__track" aria-hidden="true"></span>
+      <span class="index-rail__progress" aria-hidden="true"></span>
+      <button
+        type="button"
+        class="index-mark"
+        data-target="top"
+        aria-label="Back to top"
+      >
+        <span class="index-mark__label">top</span>
+        <span class="index-mark__dash" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="index-mark" data-target="section-intro">
+        <span class="index-mark__label">intro</span>
+        <span class="index-mark__dash" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="index-mark" data-target="section-startups">
+        <span class="index-mark__label">startups</span>
+        <span class="index-mark__dash" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="index-mark" data-target="section-flex">
+        <span class="index-mark__label">flex</span>
+        <span class="index-mark__dash" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="index-mark" data-target="section-lystner">
+        <span class="index-mark__label">lystner</span>
+        <span class="index-mark__dash" aria-hidden="true"></span>
+      </button>
+    </nav>
 
     <script>
       const reduceMotion = window.matchMedia(
@@ -271,11 +318,225 @@
           } catch (e) {}
         });
       });
+
+      // 5. Side index: progress, active section, and jump-to-section.
+      (function () {
+        const rail = document.querySelector(".index-rail");
+        if (!rail) return;
+
+        const progress = rail.querySelector(".index-rail__progress");
+        const targets = [];
+
+        rail.querySelectorAll(".index-mark").forEach(function (mark) {
+          const key = mark.getAttribute("data-target");
+          if (key === "top") {
+            targets.push({ mark: mark, el: null });
+          } else {
+            const el = document.getElementById(key);
+            if (el) targets.push({ mark: mark, el: el });
+          }
+        });
+
+        let currentActive = null;
+
+        function update() {
+          const max =
+            document.documentElement.scrollHeight - window.innerHeight;
+          const pct =
+            max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+          progress.style.setProperty("--progress", (pct * 100).toFixed(1) + "%");
+
+          const line = window.innerHeight * 0.5;
+          let active = targets[0];
+          targets.forEach(function (item) {
+            if (item.el && item.el.getBoundingClientRect().top <= line) {
+              active = item;
+            }
+          });
+          if (currentActive !== active) {
+            const initialized = currentActive !== null;
+            currentActive = active;
+            // Don't make noise on page load — only on a real transition.
+            if (initialized) {
+              document.dispatchEvent(new CustomEvent("sectionchange"));
+            }
+          }
+          targets.forEach(function (item) {
+            const on = item === active;
+            item.mark.classList.toggle("is-active", on);
+            if (on) item.mark.setAttribute("aria-current", "true");
+            else item.mark.removeAttribute("aria-current");
+          });
+        }
+
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        update();
+
+        rail.querySelectorAll(".index-mark").forEach(function (mark) {
+          mark.addEventListener("click", function () {
+            const key = mark.getAttribute("data-target");
+            const behavior = reduceMotion ? "auto" : "smooth";
+            if (key === "top") {
+              window.scrollTo({ top: 0, behavior: behavior });
+              return;
+            }
+            const el = document.getElementById(key);
+            if (el) el.scrollIntoView({ behavior: behavior, block: "start" });
+          });
+        });
+      })();
+
+      // 6. Subtle synthesized dial-click on controls, with a mute switch.
+      // Nothing is created or played until the first real user gesture.
+      (function () {
+        const root = document.documentElement;
+        const AC = window.AudioContext || window.webkitAudioContext;
+        let ctx = null;
+        let noise = null;
+
+        const isMuted = function () {
+          return root.getAttribute("data-sound") === "off";
+        };
+
+        function getContext() {
+          if (!AC) return null;
+          try {
+            if (!ctx) ctx = new AC();
+            if (ctx.state === "suspended") ctx.resume();
+            return ctx;
+          } catch (e) {
+            return null;
+          }
+        }
+
+        function getNoise(c) {
+          if (noise) return noise;
+          noise = c.createBuffer(1, Math.floor(c.sampleRate * 0.03), c.sampleRate);
+          const data = noise.getChannelData(0);
+          for (let i = 0; i < data.length; i++) {
+            data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 4);
+          }
+          return noise;
+        }
+
+        function playClick() {
+          if (isMuted()) return;
+          const c = getContext();
+          if (!c) return;
+          try {
+            const now = c.currentTime;
+
+            // Short filtered noise burst — the mechanical "tick".
+            const src = c.createBufferSource();
+            src.buffer = getNoise(c);
+            const band = c.createBiquadFilter();
+            band.type = "bandpass";
+            band.frequency.value = 1900;
+            band.Q.value = 1.1;
+            const ng = c.createGain();
+            ng.gain.setValueAtTime(0.05, now);
+            ng.gain.exponentialRampToValueAtTime(0.0001, now + 0.03);
+            src.connect(band).connect(ng).connect(c.destination);
+            src.start(now);
+
+            // A quick pitch drop adds the rotary "dial" character.
+            const osc = c.createOscillator();
+            osc.type = "square";
+            osc.frequency.setValueAtTime(760, now);
+            osc.frequency.exponentialRampToValueAtTime(320, now + 0.025);
+            const og = c.createGain();
+            og.gain.setValueAtTime(0.02, now);
+            og.gain.exponentialRampToValueAtTime(0.0001, now + 0.03);
+            osc.connect(og).connect(c.destination);
+            osc.start(now);
+            osc.stop(now + 0.035);
+          } catch (e) {}
+        }
+
+        document.addEventListener("click", function (e) {
+          if (
+            e.target.closest(
+              ".floater a, .floater button, .index-mark, .story-link"
+            )
+          ) {
+            playClick();
+          }
+        });
+
+        // The scroll index emits this whenever the active section changes.
+        document.addEventListener("sectionchange", playClick);
+
+        document.addEventListener("DOMContentLoaded", function () {
+          const toggle = document.getElementById("sound-toggle");
+          if (!toggle) return;
+
+          function sync() {
+            const label = isMuted() ? "Unmute dial clicks" : "Mute dial clicks";
+            toggle.setAttribute("aria-label", label);
+            toggle.setAttribute("title", label);
+          }
+          sync();
+
+          toggle.addEventListener("click", function () {
+            const next = isMuted() ? "on" : "off";
+            root.setAttribute("data-sound", next);
+            try {
+              localStorage.setItem("dial-sound", next);
+            } catch (e) {}
+            sync();
+          });
+        });
+      })();
     </script>
   </body>
 </html>
 
 <div class="floater flex items-center sm:gap-2 gap-1">
+  <button
+    id="sound-toggle"
+    type="button"
+    class="shrink-0"
+    aria-label="Mute dial clicks"
+    title="Mute dial clicks"
+  >
+    <div
+      class="liquidGlass-wrapper button aspect-square flex items-center justify-center rounded-full"
+    >
+      <div class="liquidGlass-effect rounded-full"></div>
+      <div class="liquidGlass-tint rounded-full"></div>
+      <div class="liquidGlass-shine"></div>
+      <div class="liquidGlass-text rounded-full glass-icon sound-icon">
+        <svg
+          class="icon-sound w-4 h-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M11 5 6 9H2v6h4l5 4V5z"></path>
+          <path d="M15.5 8.5a5 5 0 0 1 0 7"></path>
+          <path d="M18.5 5.5a9 9 0 0 1 0 13"></path>
+        </svg>
+        <svg
+          class="icon-muted w-4 h-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M11 5 6 9H2v6h4l5 4V5z"></path>
+          <path d="m22 9-6 6m0-6 6 6"></path>
+        </svg>
+      </div>
+    </div>
+  </button>
   <button
     id="theme-toggle"
     type="button"
