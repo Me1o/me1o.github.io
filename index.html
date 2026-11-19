@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
     <title>Melo</title>
     <link href="style/style.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,12 +13,14 @@
   </head>
 
   <body class="w-screen h-screen relative">
+    <div class="ambient-glow" aria-hidden="true"></div>
     <div
-      class="flex flex-wrap w-full p-4 lg:px-[25%] sm:px-[15%] px-[5%] lg:mt-[25vh] sm:mt-[20vh] mt-[10vh]"
+      class="reveal-group flex flex-wrap w-full p-4 lg:px-[25%] sm:px-[15%] px-[5%] lg:mt-[25vh] sm:mt-[20vh] mt-[10vh]"
     >
       <div class="w-full flex items-center gap-2">
         <div
-          class="border-dotted border-2 p-1 border-gray-600 w-fit rounded-lg rotate-4"
+          class="bob border-dotted border-2 p-1 border-gray-600 w-fit rounded-lg rotate-4"
+          style="animation-delay: -0.4s"
         >
           <img src="./assets/me.jpg" class="w-12 rounded-sm" />
         </div>
@@ -25,7 +30,7 @@
         </div>
       </div>
       <div class="w-full mt-4">
-        <p class="text-xl text-gray-100">
+        <p id="intro" class="text-xl text-gray-100">
           Hi, my name is
           <span
             class="highlighted border-dotted border-2 border-gray-600 px-1 rounded-lg text-white"
@@ -46,34 +51,39 @@
         </p>
         <div class="flex items-center gap-2 mt-2 mb-2">
           <div
-            class="w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+            class="bob w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+            style="animation-delay: -1.1s"
           >
             <img class="w-full logo" src="./assets/zid.svg" />
           </div>
           <div
-            class="w-10 flex items-center justify-center -rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+            class="bob w-10 flex items-center justify-center -rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+            style="animation-delay: -1.9s"
           >
             <img class="w-full logo" src="./assets/glt.png" />
           </div>
           <div
-            class="w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+            class="bob w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+            style="animation-delay: -2.6s"
           >
             <img class="w-full logo" src="./assets/homoola.png" />
           </div>
           <span
-            class="highlighted border-dotted border-2 border-gray-600 px-1 rounded-lg text-white -rotate-4"
+            class="bob highlighted border-dotted border-2 border-gray-600 px-1 rounded-lg text-white -rotate-4"
+            style="animation-delay: -3.2s"
             >+4</span
           >
         </div>
         <p class="text-sm">
           I have helped build products by writing code, deciding architecture,
-          technologies, and shaping software engineering teams.
+          technologies and shaping software engineering teams.
         </p>
       </div>
 
-      <div class="w-full mt-8">
+      <div class="w-full mt-8 reveal-scroll">
         <div
-          class="w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+          class="bob w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+          style="animation-delay: -0.9s"
         >
           <img class="w-full logo" src="./assets/flex2.png" />
         </div>
@@ -83,8 +93,8 @@
           Flex, Sudan
         </p>
         <p class="text-sm">
-          I have co-founded and served as the CEO of a startup that provided the
-          first app-based delivery service to SMEs in Sudan.
+          I have co-founded a startup that provided the first app-based delivery
+          service to SMEs in Sudan.
         </p>
         <a
           href="https://www.wamda.com/en/2020/10/flex-delivering-technological-revolution-sudan"
@@ -98,10 +108,145 @@
         </a>
       </div>
 
-      <div class="flex items-center justify-center mt-34 w-full">
-        <p class="text-xs text-gray-400">[Melo]</p>
+      <div class="w-full mt-8 reveal-scroll">
+        <div
+          class="bob w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
+          style="animation-delay: -0.9s"
+        >
+          <img class="w-full logo" src="./assets/lystner.svg" />
+        </div>
+        <p
+          class="highlighted border-dotted border-2 border-gray-600 p-1 px-2 rounded-lg text-white text-sm w-fit mb-2"
+        >
+          Lystner.ai
+        </p>
+        <p class="text-sm">
+          I am bulding lystner.ai, an AI-powered social lystining and sentiment
+          analysis platform that helps brands understand their customers and
+          competitors.
+        </p>
+        <a href="https://lystner.ai" target="_blank" class="text-sm underline">
+          <div class="flex items-center gap-2 transition-all hover:gap-4">
+            <span>Take a look </span>
+            <img class="w-4 logo" src="./assets/arrow.png" />
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center justify-center mt-34 w-full reveal-scroll">
+        <p class="text-xs text-gray-400">[Melo, 2026]</p>
       </div>
     </div>
+
+    <script>
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      // 1. Smoothly steer the ambient light toward the pointer.
+      (function () {
+        if (reduceMotion) return;
+
+        const glow = document.querySelector(".ambient-glow");
+        if (!glow) return;
+
+        let tx = window.innerWidth / 2;
+        let ty = window.innerHeight * 0.3;
+        let cx = tx;
+        let cy = ty;
+        let frame = null;
+
+        function render() {
+          cx += (tx - cx) * 0.08;
+          cy += (ty - cy) * 0.08;
+          glow.style.setProperty("--mx", cx + "px");
+          glow.style.setProperty("--my", cy + "px");
+          if (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) {
+            frame = requestAnimationFrame(render);
+          } else {
+            frame = null;
+          }
+        }
+
+        window.addEventListener("pointermove", function (e) {
+          tx = e.clientX;
+          ty = e.clientY;
+          if (!frame) frame = requestAnimationFrame(render);
+        });
+      })();
+
+      // 2. Reveal the intro word by word, then leave a blinking caret.
+      (function () {
+        if (reduceMotion) return;
+
+        const intro = document.getElementById("intro");
+        if (!intro) return;
+
+        const frag = document.createDocumentFragment();
+        let count = 0;
+
+        Array.from(intro.childNodes).forEach(function (node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent.split(/(\s+)/).forEach(function (part) {
+              if (!part) return;
+              if (/^\s+$/.test(part)) {
+                frag.appendChild(document.createTextNode(part));
+              } else {
+                const word = document.createElement("span");
+                word.className = "word";
+                word.textContent = part;
+                word.style.setProperty("--i", count++);
+                frag.appendChild(word);
+              }
+            });
+          } else {
+            // Keep the highlighted name as a single revealable unit.
+            node.classList.add("word");
+            node.style.setProperty("--i", count++);
+            frag.appendChild(node);
+          }
+        });
+        intro.replaceChildren(frag);
+
+        setTimeout(
+          function () {
+            const caret = document.createElement("span");
+            caret.className = "type-caret";
+            intro.appendChild(caret);
+          },
+          250 + count * 35 + 200
+        );
+      })();
+
+      // 3. Reveal lower sections as they scroll into view.
+      (function () {
+        const sections = document.querySelectorAll(".reveal-scroll");
+        if (!sections.length) return;
+
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+          sections.forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          function (entries, obs) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px 80px 0px" }
+        );
+
+        sections.forEach(function (el) {
+          observer.observe(el);
+        });
+      })();
+    </script>
   </body>
 </html>
 
