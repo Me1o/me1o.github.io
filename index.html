@@ -176,19 +176,39 @@
         <span class="index-mark__label">top</span>
         <span class="index-mark__dash" aria-hidden="true"></span>
       </button>
-      <button type="button" class="index-mark" data-target="section-intro">
+      <button
+        type="button"
+        class="index-mark"
+        data-target="section-intro"
+        aria-label="Intro section"
+      >
         <span class="index-mark__label">intro</span>
         <span class="index-mark__dash" aria-hidden="true"></span>
       </button>
-      <button type="button" class="index-mark" data-target="section-startups">
+      <button
+        type="button"
+        class="index-mark"
+        data-target="section-startups"
+        aria-label="Startups section"
+      >
         <span class="index-mark__label">startups</span>
         <span class="index-mark__dash" aria-hidden="true"></span>
       </button>
-      <button type="button" class="index-mark" data-target="section-flex">
+      <button
+        type="button"
+        class="index-mark"
+        data-target="section-flex"
+        aria-label="Flex section"
+      >
         <span class="index-mark__label">flex</span>
         <span class="index-mark__dash" aria-hidden="true"></span>
       </button>
-      <button type="button" class="index-mark" data-target="section-lystner">
+      <button
+        type="button"
+        class="index-mark"
+        data-target="section-lystner"
+        aria-label="Lystner section"
+      >
         <span class="index-mark__label">lystner</span>
         <span class="index-mark__dash" aria-hidden="true"></span>
       </button>
@@ -353,6 +373,17 @@
               active = item;
             }
           });
+          // On short/mobile layouts the last section can sit below the
+          // midpoint even at maximum scroll, so pin it at the bottom.
+          const atBottom =
+            window.scrollY + window.innerHeight >=
+            document.documentElement.scrollHeight - 2;
+          if (atBottom) {
+            const lastSection = targets.filter(function (item) {
+              return item.el;
+            }).pop();
+            if (lastSection) active = lastSection;
+          }
           if (currentActive !== active) {
             const initialized = currentActive !== null;
             currentActive = active;
@@ -411,6 +442,15 @@
           }
         }
 
+        function unlock() {
+          if (!isMuted()) getContext();
+        }
+        // Browsers require a gesture before audio can start. Warm the
+        // context up on the first interaction of any kind.
+        ["pointerdown", "keydown"].forEach(function (evt) {
+          window.addEventListener(evt, unlock, { once: true, passive: true });
+        });
+
         function getNoise(c) {
           if (noise) return noise;
           noise = c.createBuffer(1, Math.floor(c.sampleRate * 0.03), c.sampleRate);
@@ -436,7 +476,7 @@
             band.frequency.value = 1900;
             band.Q.value = 1.1;
             const ng = c.createGain();
-            ng.gain.setValueAtTime(0.05, now);
+            ng.gain.setValueAtTime(0.1, now);
             ng.gain.exponentialRampToValueAtTime(0.0001, now + 0.03);
             src.connect(band).connect(ng).connect(c.destination);
             src.start(now);
@@ -447,7 +487,7 @@
             osc.frequency.setValueAtTime(760, now);
             osc.frequency.exponentialRampToValueAtTime(320, now + 0.025);
             const og = c.createGain();
-            og.gain.setValueAtTime(0.02, now);
+            og.gain.setValueAtTime(0.04, now);
             og.gain.exponentialRampToValueAtTime(0.0001, now + 0.03);
             osc.connect(og).connect(c.destination);
             osc.start(now);
@@ -582,18 +622,6 @@
       </div>
     </div>
   </button>
-  <a href="./cv.pdf" target="_blank" class="shrink-0">
-    <div
-      class="liquidGlass-wrapper button aspect-square flex items-center justify-center rounded-full"
-    >
-      <div class="liquidGlass-effect rounded-full"></div>
-      <div class="liquidGlass-tint rounded-full"></div>
-      <div class="liquidGlass-shine"></div>
-      <div class="liquidGlass-text rounded-full glass-icon">
-        <img class="w-4" src="./assets/cv.png" />
-      </div>
-    </div>
-  </a>
   <a
     class="shrink-0"
     href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3u4SBh9x85znCQQftgbAy8_DmXKnbWmdEpphfbnYxUqCE0FW_1LA70zysTUgxHSBFvG8e9VEuk"
@@ -619,6 +647,18 @@
       <div class="liquidGlass-shine"></div>
       <div class="liquidGlass-text rounded-full glass-icon">
         <img class="w-4" src="./assets/linkedin.png" />
+      </div>
+    </div>
+  </a>
+  <a href="./cv.pdf" target="_blank" class="shrink-0">
+    <div
+      class="liquidGlass-wrapper button aspect-square flex items-center justify-center rounded-full"
+    >
+      <div class="liquidGlass-effect rounded-full"></div>
+      <div class="liquidGlass-tint rounded-full"></div>
+      <div class="liquidGlass-shine"></div>
+      <div class="liquidGlass-text rounded-full glass-icon">
+        <img class="w-4" src="./assets/cv.png" />
       </div>
     </div>
   </a>

@@ -570,8 +570,14 @@ body {
      more visible since there's no hover to reveal it. */
   .index-rail {
     right: 8px;
-    gap: 11px;
+    gap: 3px;
     opacity: 0.55;
+  }
+  /* Keep the dash visually small but give it a thumb-sized hit area. */
+  .index-mark {
+    min-width: 44px;
+    padding: 10px 0;
+    justify-content: flex-end;
   }
   .index-mark__label {
     display: none;
