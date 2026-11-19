@@ -460,6 +460,18 @@ body {
   transform: translate(3px, -3px);
 }
 
+/* ---- Active section emphasis ----
+   Uses the independent `scale` property so it never fights the
+   `transform` used by the scroll-reveal entrance. */
+.scale-section {
+  scale: 0.96;
+  transform-origin: left center;
+  transition: scale 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.scale-section.is-current {
+  scale: 1;
+}
+
 /* ---- Side scroll index ---- */
 .index-rail {
   position: fixed;
@@ -554,8 +566,27 @@ body {
 }
 
 @media (max-width: 640px) {
+  /* Compact version for phones: dashes only, no labels, slightly
+     more visible since there's no hover to reveal it. */
   .index-rail {
+    right: 8px;
+    gap: 11px;
+    opacity: 0.55;
+  }
+  .index-mark__label {
     display: none;
+  }
+  .index-mark__dash {
+    width: 8px;
+  }
+  .index-mark:hover .index-mark__dash,
+  .index-mark:focus-visible .index-mark__dash,
+  .index-mark.is-active .index-mark__dash {
+    width: 16px;
+  }
+  .index-rail__track,
+  .index-rail__progress {
+    right: 4px;
   }
 }
 
@@ -569,7 +600,8 @@ body {
   .index-rail,
   .index-mark,
   .index-mark__label,
-  .index-mark__dash {
+  .index-mark__dash,
+  .scale-section {
     transition: none !important;
   }
   .story-link,

@@ -47,7 +47,7 @@
           <p class="text-xs">Khartoum, SD - Riyadh,SA</p>
         </div>
       </div>
-      <div id="section-intro" class="w-full mt-4">
+      <div id="section-intro" class="scale-section w-full mt-4">
         <p id="intro" class="text-xl text-gray-100">
           Hi, my name is
           <span
@@ -57,7 +57,7 @@
           building apps, leading teams and making an impact.
         </p>
       </div>
-      <div id="section-startups" class="w-full mt-8">
+      <div id="section-startups" class="scale-section w-full mt-8">
         <p
           class="highlighted border-dotted border-2 border-gray-600 p-1 px-2 rounded-lg text-white text-sm w-fit mb-2"
         >
@@ -98,7 +98,7 @@
         </p>
       </div>
 
-      <div id="section-flex" class="w-full mt-8 reveal-scroll">
+      <div id="section-flex" class="scale-section w-full mt-8 reveal-scroll">
         <div
           class="bob w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
           style="animation-delay: -0.9s"
@@ -128,7 +128,7 @@
         </a>
       </div>
 
-      <div id="section-lystner" class="w-full mt-8 reveal-scroll">
+      <div id="section-lystner" class="scale-section w-full mt-8 reveal-scroll">
         <div
           class="bob w-12 flex items-center justify-center rotate-4 border-dotted border-2 border-gray-600 px-1 rounded-lg p-1"
           style="animation-delay: -0.9s"
@@ -366,6 +366,7 @@
             item.mark.classList.toggle("is-active", on);
             if (on) item.mark.setAttribute("aria-current", "true");
             else item.mark.removeAttribute("aria-current");
+            if (item.el) item.el.classList.toggle("is-current", on);
           });
         }
 
