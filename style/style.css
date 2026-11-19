@@ -1,10 +1,33 @@
 @import url("./fonts.css");
+
+:root {
+  --bg: #000000;
+  --fg: #ffffff;
+  --fg-muted: #9ca3af;
+  --border: #4b5563;
+  --accent: #2dd4bf;
+  --glow: 45, 212, 191;
+  --glass-tint: rgba(255, 255, 255, 0.25);
+  --glass-text: #ffffff;
+}
+
+[data-theme="light"] {
+  --bg: #fafaf9;
+  --fg: #1c1917;
+  --fg-muted: #57534e;
+  --border: #a8a29e;
+  --accent: #0d9488;
+  --glow: 13, 148, 136;
+  --glass-tint: rgba(0, 0, 0, 0.05);
+  --glass-text: #1c1917;
+}
+
 body {
-  background-color: black;
+  background-color: var(--bg);
   font-family: "jetRegular", serif;
   font-weight: 400;
   font-style: normal;
-  color: #fff;
+  color: var(--fg);
 }
 
 .highlighted {
@@ -47,7 +70,7 @@ body {
   z-index: 1;
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--glass-tint);
   border-radius: 12px;
 }
 .liquidGlass-shine {
@@ -62,7 +85,7 @@ body {
 .liquidGlass-text {
   z-index: 3;
   font-size: 14px;
-  color: #fff;
+  color: var(--glass-text);
   padding: 8px;
 }
 .glass-icon > img {
@@ -96,7 +119,7 @@ body {
   pointer-events: none;
   background: radial-gradient(
     620px circle at var(--mx, 50%) var(--my, 30%),
-    rgba(45, 212, 191, 0.1),
+    rgba(var(--glow), 0.1),
     transparent 60%
   );
   animation: glowPulse 7s ease-in-out infinite;
@@ -109,7 +132,7 @@ body {
   inset: 0;
   background: radial-gradient(
     520px circle at 18% 78%,
-    rgba(45, 212, 191, 0.06),
+    rgba(var(--glow), 0.06),
     transparent 62%
   );
   animation: drift 20s ease-in-out infinite alternate;
@@ -227,7 +250,7 @@ body {
   width: 2px;
   height: 1em;
   margin-left: 3px;
-  background: #2dd4bf;
+  background: var(--accent);
   vertical-align: -0.12em;
   animation: blink 1.1s step-end infinite;
 }
@@ -296,6 +319,48 @@ body {
   animation: wiggle 0.55s ease-in-out;
 }
 
+/* ---- Light theme: recolor the Tailwind utility classes we can't
+        change through variables (higher specificity wins over the CDN). ---- */
+[data-theme="light"] .text-white,
+[data-theme="light"] .text-gray-100 {
+  color: var(--fg);
+}
+[data-theme="light"] .text-gray-400 {
+  color: var(--fg-muted);
+}
+[data-theme="light"] .border-gray-600 {
+  border-color: var(--border);
+}
+[data-theme="light"] .logo {
+  filter: brightness(0);
+}
+[data-theme="light"] .liquidGlass-shine {
+  box-shadow:
+    inset 2px 2px 1px 0 rgba(0, 0, 0, 0.08),
+    inset -1px -1px 1px 1px rgba(0, 0, 0, 0.12);
+}
+
+/* ---- Theme toggle icon ---- */
+.theme-icon svg {
+  transition: transform 0.2s ease-in-out;
+}
+.theme-icon .icon-sun {
+  display: block;
+}
+.theme-icon .icon-moon {
+  display: none;
+}
+[data-theme="light"] .theme-icon .icon-sun {
+  display: none;
+}
+[data-theme="light"] .theme-icon .icon-moon {
+  display: block;
+}
+.liquidGlass-wrapper:hover .theme-icon svg {
+  transform: scale(1.2);
+  animation: wiggle 0.55s ease-in-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-group > *,
   .bob,
@@ -315,7 +380,8 @@ body {
   .liquidGlass-wrapper::after {
     display: none !important;
   }
-  .liquidGlass-wrapper:hover .glass-icon > img {
+  .liquidGlass-wrapper:hover .glass-icon > img,
+  .liquidGlass-wrapper:hover .theme-icon svg {
     animation: none !important;
   }
 }
