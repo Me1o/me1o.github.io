@@ -364,7 +364,10 @@
             document.documentElement.scrollHeight - window.innerHeight;
           const pct =
             max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-          progress.style.setProperty("--progress", (pct * 100).toFixed(1) + "%");
+          progress.style.setProperty(
+            "--progress",
+            (pct * 100).toFixed(1) + "%"
+          );
 
           const line = window.innerHeight * 0.5;
           let active = targets[0];
@@ -379,9 +382,11 @@
             window.scrollY + window.innerHeight >=
             document.documentElement.scrollHeight - 2;
           if (atBottom) {
-            const lastSection = targets.filter(function (item) {
-              return item.el;
-            }).pop();
+            const lastSection = targets
+              .filter(function (item) {
+                return item.el;
+              })
+              .pop();
             if (lastSection) active = lastSection;
           }
           if (currentActive !== active) {
@@ -453,10 +458,15 @@
 
         function getNoise(c) {
           if (noise) return noise;
-          noise = c.createBuffer(1, Math.floor(c.sampleRate * 0.03), c.sampleRate);
+          noise = c.createBuffer(
+            1,
+            Math.floor(c.sampleRate * 0.03),
+            c.sampleRate
+          );
           const data = noise.getChannelData(0);
           for (let i = 0; i < data.length; i++) {
-            data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 4);
+            data[i] =
+              (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 4);
           }
           return noise;
         }
@@ -650,7 +660,7 @@
       </div>
     </div>
   </a>
-  <a href="./cv.pdf" target="_blank" class="shrink-0">
+  <a href="./Hosam-Nasr-CV.pdf" target="_blank" class="shrink-0">
     <div
       class="liquidGlass-wrapper button aspect-square flex items-center justify-center rounded-full"
     >
